@@ -1,4 +1,4 @@
-package com.woowacourse.woowaquiz.quiz.web.dto;
+package com.woowacourse.woowaquiz.quiz.service.dto;
 
 import com.woowacourse.woowaquiz.quiz.domain.Quiz;
 import lombok.AccessLevel;

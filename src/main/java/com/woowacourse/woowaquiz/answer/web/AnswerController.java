@@ -1,5 +1,6 @@
 package com.woowacourse.woowaquiz.answer.web;
 
+import com.woowacourse.woowaquiz.answer.service.AnswerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,4 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/v1/answer")
 @RequiredArgsConstructor
 public class AnswerController {
+    private final AnswerService answerService;
 }

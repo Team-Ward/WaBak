@@ -1,7 +1,7 @@
 package com.woowacourse.woowaquiz.quiz.web;
 
 import com.woowacourse.woowaquiz.quiz.service.QuizService;
-import com.woowacourse.woowaquiz.quiz.web.dto.QuizSaveRequestDto;
+import com.woowacourse.woowaquiz.quiz.service.dto.QuizSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +19,6 @@ public class QuizController {
 
     @PostMapping
     public ResponseEntity<Long> saveQuiz(@RequestBody QuizSaveRequestDto quizSaveRequestDto) {
-        return new ResponseEntity<>(quizService.saveQuiz(quizSaveRequestDto.toEntity()), HttpStatus.CREATED);
+        return new ResponseEntity<>(quizService.saveQuiz(quizSaveRequestDto), HttpStatus.CREATED);
     }
 }
