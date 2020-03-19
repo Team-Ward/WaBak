@@ -6,11 +6,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
@@ -20,12 +22,17 @@ import java.time.LocalDateTime;
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ANSWER_ID")
     private Long id;
+    @Column(name = "ANSWER")
     private String answer;
+    @Column(name = "AUTHOR")
     private String author;
+    @Column(name = "CREATED_TIME")
     private LocalDateTime createdTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "QUIZ_ID")
     private Quiz quiz;
 
     @Builder
