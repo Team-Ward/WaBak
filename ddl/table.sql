@@ -1,3 +1,6 @@
+# 스키마 생성
+create database `woowa-quiz`;
+
 # Quiz
 create table quizzes
 (
@@ -10,6 +13,7 @@ create table quizzes
     solution     varchar(255),
     primary key (quiz_id)
 ) engine = InnoDB;
+
 # Answer
 create table answer
 (
@@ -20,6 +24,7 @@ create table answer
     quiz_id      bigint,
     primary key (answer_id)
 ) engine = InnoDB;
+
 # Quiz - Answer FK
 alter table answer
     add constraint FK_QUIZ_QUIZ_ID foreign key (quiz_id) references quizzes (quiz_id);
