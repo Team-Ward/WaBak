@@ -10,21 +10,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class QuizSaveRequestDto {
     private String quizType;
+    private String title;
     private String question;
     private String solution;
     private String author;
 
     @Builder
-    public QuizSaveRequestDto(String quizType, String question, String solution, String author) {
+    public QuizSaveRequestDto(String quizType, String title, String question, String solution, String author) {
         this.quizType = quizType;
         this.question = question;
         this.solution = solution;
         this.author = author;
+        this.title = title;
     }
 
     public Quiz toEntity() {
         return Quiz.builder()
                 .quizType(this.quizType)
+                .title(this.title)
                 .question(this.question)
                 .solution(this.solution)
                 .author(this.author)

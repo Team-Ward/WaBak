@@ -10,8 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -30,13 +28,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@ActiveProfiles("local")
+@ActiveProfiles("test")
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 class QuizControllerTest {
     private static final String QUIZ_BAE_URL = "/api/v1/quiz";
     private static final Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
-    private static Logger log = LoggerFactory.getLogger(QuizControllerTest.class);
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -67,6 +64,7 @@ class QuizControllerTest {
         //given
         QuizSaveRequestDto quizSaveRequestDto = QuizSaveRequestDto.builder()
                 .quizType("TYPING")
+                .title("나오는 문장을 따라 적으세요.")
                 .question("어찌, 내가 왕이 될 상인가?")
                 .solution("어찌, 내가 왕이 될 상인가?")
                 .author("bebop")
@@ -85,9 +83,11 @@ class QuizControllerTest {
         Long savedQuizId = objectMapper.readValue(contentAsString, Long.class);
 
         List<Quiz> all = quizRepository.findAll();
+        Quiz savedQuiz = quizRepository.findById(savedQuizId)
+                .orElseThrow(NullPointerException::new);
 
         //then
         assertThat(all).hasSize(1);
-        assertThat(savedQuizId).isEqualTo(1);
+        assertThat(all.get(0).getId()).isEqualTo(savedQuiz.getId());
     }
 }

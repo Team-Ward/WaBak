@@ -28,6 +28,8 @@ public class Quiz {
     @Enumerated(value = EnumType.STRING)
     @Column(name = "QUIZ_TYPE")
     private QuizType quizType;
+    @Column(name = "TITLE")
+    private String title;
     @Column(name = "QUESTION")
     private String question;
     @Column(name = "SOLUTION")
@@ -40,8 +42,9 @@ public class Quiz {
     private LocalDateTime createdTime;
 
     @Builder
-    public Quiz(String quizType, String question, String solution, String author, boolean active, LocalDateTime createdTime) {
+    public Quiz(String quizType, String title, String question, String solution, String author, boolean active, LocalDateTime createdTime) {
         this.quizType = QuizType.valueOf(quizType);
+        this.title = title;
         this.question = question;
         this.solution = solution;
         this.author = author;
