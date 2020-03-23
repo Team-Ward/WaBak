@@ -2,8 +2,8 @@ package com.woowacourse.woowaquiz.answer.service.dto;
 
 import com.woowacourse.woowaquiz.answer.domain.Answer;
 import com.woowacourse.woowaquiz.quiz.domain.Quiz;
-import com.woowacourse.woowaquiz.quiz.domain.QuizRepository;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +17,7 @@ public class AnswerSaveRequestDto {
 
     private Long quizId;
 
+    @Builder
     public AnswerSaveRequestDto(String answer, String author, Long quizId) {
         Objects.requireNonNull(author, "답변 작성자가 비어있습니다.");
         Objects.requireNonNull(quizId, "Quiz Id가 비어있습니다.");
@@ -25,9 +26,7 @@ public class AnswerSaveRequestDto {
         this.quizId = quizId;
     }
 
-    public Answer toEntity(QuizRepository quizRepository) {
-        Quiz quiz = quizRepository.findById(quizId)
-                .orElseThrow(() -> new IllegalArgumentException(String.format("%d 존재하지 않는 퀴즈 번호입니다.", this.quizId)));
+    public Answer toEntity(Quiz quiz) {
         return Answer.builder()
                 .answer(this.answer)
                 .author(this.author)

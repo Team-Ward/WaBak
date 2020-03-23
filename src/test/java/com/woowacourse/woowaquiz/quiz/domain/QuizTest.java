@@ -15,6 +15,8 @@ class QuizTest {
         //given
         Quiz quiz = Quiz.builder()
                 .quizType("TYPING")
+                .question("어찌, 내가 왕이 될 상인가?")
+                .solution("어찌, 내가 왕이 될 상인가?")
                 .active(initial)
                 .build();
 

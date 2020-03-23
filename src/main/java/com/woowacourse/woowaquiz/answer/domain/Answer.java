@@ -1,5 +1,6 @@
 package com.woowacourse.woowaquiz.answer.domain;
 
+import com.woowacourse.woowaquiz.common.LocalDateTimeUtils;
 import com.woowacourse.woowaquiz.quiz.domain.Quiz;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -40,7 +41,7 @@ public class Answer {
         this.answer = answer;
         this.author = author;
         this.quiz = quiz;
-        this.createdTime = createdTime;
+        this.createdTime = LocalDateTimeUtils.now(createdTime);
     }
 
     public boolean isCorrect() {

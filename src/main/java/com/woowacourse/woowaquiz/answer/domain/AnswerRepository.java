@@ -1,6 +1,5 @@
-package com.woowacourse.woowaquiz.answer.repository;
+package com.woowacourse.woowaquiz.answer.domain;
 
-import com.woowacourse.woowaquiz.answer.domain.Answer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AnswerRepository extends JpaRepository<Answer, Long> {
