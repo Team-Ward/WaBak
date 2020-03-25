@@ -24,6 +24,6 @@ class QuizTest {
         quiz.toggle();
 
         //then
-        assertThat(quiz.isActive()).isEqualTo(result);
+        assertThat(quiz.getQuizInfo().isActive()).isEqualTo(result);
     }
 }

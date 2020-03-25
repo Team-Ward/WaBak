@@ -25,10 +25,14 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ANSWER_ID")
     private Long id;
+
     @Column(name = "ANSWER")
     private String answer;
+
+    //TODO github 로그인으로 해결하자
     @Column(name = "AUTHOR")
     private String author;
+
     @Column(name = "CREATED_TIME")
     private LocalDateTime createdTime;
 
