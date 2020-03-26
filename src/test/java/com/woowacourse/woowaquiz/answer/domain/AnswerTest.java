@@ -14,11 +14,13 @@ class AnswerTest {
     @CsvSource(value = {"어찌, 내가 왕이 될 상인가?|true", "어짐ㄴ애가와이될상인가?|false"}, delimiter = '|')
     void isCorrect(String inputAnswer, boolean result) {
         //given
+        String questionAndSolution = "어찌, 내가 왕이 될 상인가?";
+
         Quiz quiz = Quiz.builder()
                 .quizType("TYPING")
                 .active(true)
-                .question("어찌, 내가 왕이 될 상인가?")
-                .solution("어찌, 내가 왕이 될 상인가?")
+                .question(questionAndSolution)
+                .solution(questionAndSolution)
                 .build();
 
         Answer answer = Answer.builder()

@@ -91,6 +91,5 @@ class AnswerControllerTest {
         assertThat(all).hasSize(1);
         assertThat(all.get(0).getId()).isEqualTo(savedAnswer.getId());
         assertThat(all.get(0).getQuiz().getId()).isEqualTo(quiz.getId());
-
     }
 }
