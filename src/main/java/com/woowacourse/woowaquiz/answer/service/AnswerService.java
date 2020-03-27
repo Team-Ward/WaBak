@@ -8,12 +8,15 @@ import com.woowacourse.woowaquiz.quiz.domain.QuizRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 @RequiredArgsConstructor
 public class AnswerService {
     private final QuizRepository quizRepository;
     private final AnswerRepository answerRepository;
 
+    @Transactional
     public Long saveAnswer(AnswerSaveRequestDto answerSaveRequestDto) {
         Quiz quiz = quizRepository.findById(answerSaveRequestDto.getQuizId())
                 .orElseThrow(() -> new IllegalArgumentException(String.format("%d :존재하지 않는 퀴즈번호 입니다.", answerSaveRequestDto.getQuizId())));
