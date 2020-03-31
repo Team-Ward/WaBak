@@ -78,11 +78,10 @@ class RoomServiceTest {
 
         //when
         Long save = roomService.save(roomSaveDto);
-        List<Room> all = roomRepository.findAll();
-        Room room = all.get(0);
+        Room room = roomRepository.findByIdFetch(save)
+                .orElseThrow(IllegalArgumentException::new);
 
         //then
-        assertThat(all).hasSize(1);
         assertThat(room.getQuizzes()).hasSize(3);
     }
 }

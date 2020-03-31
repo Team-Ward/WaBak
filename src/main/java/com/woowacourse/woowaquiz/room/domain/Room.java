@@ -12,12 +12,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
-@Table(name = "ROOM")
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AttributeOverride(name = "id", column = @Column(name = "ROOM_ID"))
@@ -28,7 +26,8 @@ public class Room extends BaseEntity {
     @Column(name = "AUTHOR")
     private String author;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    //TODO queryDSL 작성을 통해 LAZY 테스트 가능하도록 만들자
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Quiz> quizzes;
 
     @Builder
