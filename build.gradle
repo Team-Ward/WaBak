@@ -1,9 +1,8 @@
 plugins {
 	id 'org.springframework.boot' version '2.2.5.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-	//querydsl 추가
-	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 	id 'java'
+	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 	id "io.franzbecker.gradle-lombok" version "3.0.0"
 }
 

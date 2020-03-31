@@ -1,4 +1,4 @@
-package com.woowacourse.woowaquiz.room.domain;
+package com.woowacourse.woowaquiz.room.domain.model;
 
 import com.woowacourse.woowaquiz.generic.BaseEntity;
 import com.woowacourse.woowaquiz.quiz.domain.Quiz;
@@ -26,7 +26,6 @@ public class Room extends BaseEntity {
     @Column(name = "AUTHOR")
     private String author;
 
-    //TODO queryDSL 작성을 통해 LAZY 테스트 가능하도록 만들자
     @OneToMany(fetch = FetchType.LAZY)
     private List<Quiz> quizzes;
 

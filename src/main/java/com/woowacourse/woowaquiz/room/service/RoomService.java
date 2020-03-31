@@ -2,8 +2,8 @@ package com.woowacourse.woowaquiz.room.service;
 
 import com.woowacourse.woowaquiz.quiz.domain.Quiz;
 import com.woowacourse.woowaquiz.quiz.domain.QuizRepository;
-import com.woowacourse.woowaquiz.room.domain.Room;
-import com.woowacourse.woowaquiz.room.domain.RoomRepository;
+import com.woowacourse.woowaquiz.room.domain.model.Room;
+import com.woowacourse.woowaquiz.room.domain.repository.RoomRepository;
 import com.woowacourse.woowaquiz.room.service.dto.RoomSaveDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
