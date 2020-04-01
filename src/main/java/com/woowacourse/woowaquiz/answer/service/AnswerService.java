@@ -1,10 +1,10 @@
 package com.woowacourse.woowaquiz.answer.service;
 
-import com.woowacourse.woowaquiz.answer.domain.Answer;
-import com.woowacourse.woowaquiz.answer.domain.AnswerRepository;
+import com.woowacourse.woowaquiz.answer.domain.model.Answer;
+import com.woowacourse.woowaquiz.answer.domain.repository.AnswerRepository;
 import com.woowacourse.woowaquiz.answer.service.dto.AnswerSaveRequestDto;
-import com.woowacourse.woowaquiz.quiz.domain.Quiz;
-import com.woowacourse.woowaquiz.quiz.domain.QuizRepository;
+import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
+import com.woowacourse.woowaquiz.quiz.domain.repository.QuizRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

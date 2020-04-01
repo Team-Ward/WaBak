@@ -1,7 +1,7 @@
 package com.woowacourse.woowaquiz.room.domain.model;
 
 import com.woowacourse.woowaquiz.generic.BaseEntity;
-import com.woowacourse.woowaquiz.quiz.domain.Quiz;
+import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

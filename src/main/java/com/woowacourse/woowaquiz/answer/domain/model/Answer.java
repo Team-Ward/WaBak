@@ -1,13 +1,18 @@
-package com.woowacourse.woowaquiz.answer.domain;
+package com.woowacourse.woowaquiz.answer.domain.model;
 
 import com.woowacourse.woowaquiz.generic.BaseEntity;
-import com.woowacourse.woowaquiz.quiz.domain.Quiz;
+import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity

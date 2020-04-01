@@ -2,8 +2,8 @@ package com.woowacourse.woowaquiz.quiz.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.woowacourse.woowaquiz.quiz.domain.Quiz;
-import com.woowacourse.woowaquiz.quiz.domain.QuizRepository;
+import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
+import com.woowacourse.woowaquiz.quiz.domain.repository.QuizRepository;
 import com.woowacourse.woowaquiz.quiz.service.dto.QuizSaveRequestDto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

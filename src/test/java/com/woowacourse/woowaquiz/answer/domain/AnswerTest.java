@@ -1,6 +1,7 @@
 package com.woowacourse.woowaquiz.answer.domain;
 
-import com.woowacourse.woowaquiz.quiz.domain.Quiz;
+import com.woowacourse.woowaquiz.answer.domain.model.Answer;
+import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

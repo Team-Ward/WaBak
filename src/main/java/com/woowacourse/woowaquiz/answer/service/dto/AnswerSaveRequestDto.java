@@ -1,7 +1,7 @@
 package com.woowacourse.woowaquiz.answer.service.dto;
 
-import com.woowacourse.woowaquiz.answer.domain.Answer;
-import com.woowacourse.woowaquiz.quiz.domain.Quiz;
+import com.woowacourse.woowaquiz.answer.domain.model.Answer;
+import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

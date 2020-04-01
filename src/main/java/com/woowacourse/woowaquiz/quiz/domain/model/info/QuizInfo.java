@@ -1,6 +1,6 @@
-package com.woowacourse.woowaquiz.quiz.domain.info;
+package com.woowacourse.woowaquiz.quiz.domain.model.info;
 
-import com.woowacourse.woowaquiz.quiz.domain.info.type.QuizType;
+import com.woowacourse.woowaquiz.quiz.domain.model.info.type.QuizType;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

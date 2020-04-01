@@ -1,8 +1,8 @@
 package com.woowacourse.woowaquiz.room.service;
 
 import com.woowacourse.woowaquiz.generic.BaseEntity;
-import com.woowacourse.woowaquiz.quiz.domain.Quiz;
-import com.woowacourse.woowaquiz.quiz.domain.QuizRepository;
+import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
+import com.woowacourse.woowaquiz.quiz.domain.repository.QuizRepository;
 import com.woowacourse.woowaquiz.room.domain.model.Room;
 import com.woowacourse.woowaquiz.room.domain.repository.RoomRepository;
 import com.woowacourse.woowaquiz.room.service.dto.RoomSaveDto;

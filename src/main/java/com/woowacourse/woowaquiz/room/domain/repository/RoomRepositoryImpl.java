@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 
 import java.util.Optional;
 
-import static com.woowacourse.woowaquiz.quiz.domain.QQuiz.quiz;
+import static com.woowacourse.woowaquiz.quiz.domain.model.QQuiz.quiz;
 import static com.woowacourse.woowaquiz.room.domain.model.QRoom.room;
 
 public class RoomRepositoryImpl extends QuerydslRepositorySupport implements RoomRepositoryCustom {

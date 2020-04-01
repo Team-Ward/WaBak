@@ -1,4 +1,4 @@
-package com.woowacourse.woowaquiz.quiz.domain.info.type;
+package com.woowacourse.woowaquiz.quiz.domain.model.info.type;
 
 import java.util.Arrays;
 
