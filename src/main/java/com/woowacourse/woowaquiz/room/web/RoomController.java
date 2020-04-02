@@ -3,6 +3,7 @@ package com.woowacourse.woowaquiz.room.web;
 import com.woowacourse.woowaquiz.room.service.RoomService;
 import com.woowacourse.woowaquiz.room.service.dto.RoomSaveDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,8 @@ public class RoomController {
     private final RoomService roomService;
 
     @PostMapping
-    public ResponseEntity<Object> saveRoom(@RequestBody RoomSaveDto roomSaveDto) {
-        return null;
+    public ResponseEntity<Long> saveRoom(@RequestBody RoomSaveDto roomSaveDto) {
+        Long saveId = roomService.save(roomSaveDto);
+        return new ResponseEntity<>(saveId, HttpStatus.CREATED);
     }
 }
