@@ -4,6 +4,8 @@ import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
 import com.woowacourse.woowaquiz.quiz.domain.repository.QuizRepository;
 import com.woowacourse.woowaquiz.room.domain.model.Room;
 import com.woowacourse.woowaquiz.room.domain.repository.RoomRepository;
+import com.woowacourse.woowaquiz.room.service.dto.RoomBundleResponseDto;
+import com.woowacourse.woowaquiz.room.service.dto.RoomResponseDto;
 import com.woowacourse.woowaquiz.room.service.dto.RoomSaveDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,5 +34,11 @@ public class RoomService {
     private Quiz findQuiz(Long quizId) {
         return quizRepository.findById(quizId)
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    public RoomBundleResponseDto findAll() {
+        return roomRepository.findAll().stream()
+                .map(RoomResponseDto::of)
+                .collect(collectingAndThen(toList(), RoomBundleResponseDto::new));
     }
 }

@@ -8,6 +8,7 @@ import com.woowacourse.woowaquiz.quiz.domain.model.info.type.QuizType;
 import com.woowacourse.woowaquiz.quiz.domain.repository.QuizRepository;
 import com.woowacourse.woowaquiz.room.domain.model.Room;
 import com.woowacourse.woowaquiz.room.domain.repository.RoomRepository;
+import com.woowacourse.woowaquiz.room.service.dto.RoomBundleResponseDto;
 import com.woowacourse.woowaquiz.room.service.dto.RoomSaveDto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,6 +28,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -50,7 +52,7 @@ class RoomControllerTest {
 
     @BeforeEach
     void setUp() {
-        this.mockMvc = mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
                 .addFilters(new CharacterEncodingFilter("UTF-8", true))
                 .build();
     }
@@ -96,5 +98,33 @@ class RoomControllerTest {
         //then
         assertThat(room.getName()).isEqualTo(roomSaveDto.getName());
         assertThat(room.getQuizzes()).hasSize(1);
+    }
+
+    @DisplayName("등록된 전체 방 목록 정보 가져오기")
+    @Test
+    public void findAll() throws Exception {
+        //given
+        RoomSaveDto roomSaveDto = RoomSaveDto.builder()
+                .name("방 이름")
+                .author("방장 유저")
+                .build();
+
+        roomRepository.saveAll(Arrays.asList(
+                roomSaveDto.toEntity(Arrays.asList()),
+                roomSaveDto.toEntity(Arrays.asList()),
+                roomSaveDto.toEntity(Arrays.asList())));
+        roomRepository.flush();
+
+        //when
+        MvcResult mvcResult = mockMvc.perform(get(ROOM_API_DEFAULT_URL)
+                .characterEncoding("UTF-8")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        RoomBundleResponseDto roomBundleResponseDto = new ObjectMapper().readValue(mvcResult.getResponse().getContentAsString(), RoomBundleResponseDto.class);
+
+        //given
+        assertThat(roomBundleResponseDto.size()).isEqualTo(3);
     }
 }

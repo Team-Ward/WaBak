@@ -1,10 +1,12 @@
 package com.woowacourse.woowaquiz.room.web;
 
 import com.woowacourse.woowaquiz.room.service.RoomService;
+import com.woowacourse.woowaquiz.room.service.dto.RoomBundleResponseDto;
 import com.woowacourse.woowaquiz.room.service.dto.RoomSaveDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +23,10 @@ public class RoomController {
     public ResponseEntity<Long> saveRoom(@RequestBody RoomSaveDto roomSaveDto) {
         Long saveId = roomService.save(roomSaveDto);
         return new ResponseEntity<>(saveId, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<RoomBundleResponseDto> findAllRoom() {
+        return ResponseEntity.ok(roomService.findAll());
     }
 }
