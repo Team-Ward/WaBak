@@ -7,6 +7,7 @@ import com.woowacourse.woowaquiz.answer.domain.repository.AnswerRepository;
 import com.woowacourse.woowaquiz.answer.service.dto.AnswerSaveRequestDto;
 import com.woowacourse.woowaquiz.quiz.domain.model.Quiz;
 import com.woowacourse.woowaquiz.quiz.domain.repository.QuizRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -52,6 +53,12 @@ class AnswerControllerTest {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
                 .addFilter(new CharacterEncodingFilter("UTF-8", true))
                 .build();
+    }
+
+    @AfterEach
+    void tearDown() {
+        answerRepository.deleteAll();
+        quizRepository.deleteAll();
     }
 
     @DisplayName("문제에 대한 정답 저장")
