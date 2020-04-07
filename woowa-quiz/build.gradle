@@ -3,6 +3,9 @@ plugins {
     id "io.franzbecker.gradle-lombok" version "3.0.0"
 }
 
+bootJar { enabled = false }
+jar { enabled = true }
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -20,12 +23,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compile("org.mariadb.jdbc:mariadb-java-client")
     compile 'com.h2database:h2'
+
 }
 
 def querydslDir = "$buildDir/generated/querydsl"
 
 querydsl {
-    labrary = 'com.querydsl:querydsl-jpa'
     jpa = true
     querydslSourcesDir = querydslDir
 }

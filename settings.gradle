@@ -1,3 +1,4 @@
 rootProject.name = 'woowascrum'
 include 'woowa-quiz'
+include 'woowa-web'
 

@@ -22,6 +22,17 @@ subprojects {
 
     sourceCompatibility = '1.8'
 
+    repositories {
+        mavenCentral()
+    }
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+
     dependencies {
         compile("com.google.code.gson:gson")
 
