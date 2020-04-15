@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    include: oauth
+  mvc:
+    view:
+      suffix: .html
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
