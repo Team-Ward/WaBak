@@ -1,11 +1,24 @@
 spring:
   profiles:
-    include: oauth
+    active: test
+    include:
+      - oauth
   mvc:
     view:
       suffix: .html
-  devtools:
-    livereload:
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:woowa-scrum;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL
+      username: sa
+      password:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: false
+        hbm2ddl:
+          auto: create-drop
+  h2:
+    console:
       enabled: true
-  freemarker:
-    cache: false

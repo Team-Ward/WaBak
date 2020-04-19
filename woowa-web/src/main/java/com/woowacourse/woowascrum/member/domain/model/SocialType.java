@@ -10,8 +10,7 @@ public enum SocialType {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
+    public boolean isEqual(String name) {
+        return this.name.equals(name);
     }
-
 }

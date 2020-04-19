@@ -19,19 +19,18 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member extends BaseEntity {
     private String email;
-    private String password;
     private String name;
     private String picture;
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
+    @Enumerated(EnumType.STRING)
     private Role role;
     private LocalDateTime updatedTime;
 
     @Builder
-    public Member(final String email, final String password, final String name, final String picture, final SocialType socialType, final Role role, final LocalDateTime createdTime, final LocalDateTime updatedTime) {
+    public Member(final String email, final String name, final String picture, final SocialType socialType, final Role role, final LocalDateTime createdTime, final LocalDateTime updatedTime) {
         super(createdTime);
         this.email = email;
-        this.password = password;
         this.name = name;
         this.picture = picture;
         this.socialType = socialType;
