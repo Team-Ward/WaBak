@@ -1,4 +1,4 @@
-package com.woowacourse.woowascrum.common;
+package com.woowacourse.woowascrum.generic.common;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;

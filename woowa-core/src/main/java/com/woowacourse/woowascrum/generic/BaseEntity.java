@@ -1,6 +1,6 @@
 package com.woowacourse.woowascrum.generic;
 
-import com.woowacourse.woowascrum.common.LocalDateTimeUtils;
+import com.woowacourse.woowascrum.generic.common.LocalDateTimeUtils;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
