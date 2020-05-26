@@ -1,5 +1,1 @@
-rootProject.name = 'woowascrum'
-include 'woowa-quiz'
-include 'woowa-web'
-include 'woowa-core'
-
+rootProject.name = 'wabak'

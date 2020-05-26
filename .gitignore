@@ -22,4 +22,3 @@ out/
 ### VS Code ###
 .vscode/
 /src/main/generated/
-/woowa-web/src/main/resources/application-oauth.yml
